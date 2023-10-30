@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(11, 3, 34);
+
+}
+a:hover {
+    opacity: 0.5;
+}
+
+* {
+    color: white;
+    font-family: Menlo,Monaco,Consolas;
+
+}
+
+.box h1::after {
+    content: "";
+    width: 15px;
+    height: 30px;
+    background: MediumSeaGreen;
+    display: inline-block;
+    transform: translate(4px,4px);
+}
+
+.box h1:after {
+    animation: cursor-blink 1s steps(2) infinite;
+
+}
+
+@keyframes cursor-blink {
+    0% {
+        opacity: 0;
+    }
+
+}
+
+.social-icons {
+    display: inline;
+}
+
+.social-icons a {
+    margin-right: 10px;
+}
+
+.social-icon-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+}

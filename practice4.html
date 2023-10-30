@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Multiplication Table</h2>
+    
+    <form method="post" action="">
+        Enter the value of 'n': <input type="number" name="n" min="1" max="20">
+        <input type="submit" value="Generate Table">
+    </form>
+
+    <?php
+    if (isset($_POST['n'])) {
+        $n = (int)$_POST['n'];
+        if ($n > 0 && $n <= 20) {
+            echo "<h2>Multiplication Table ($n x $n)</h2>";
+            echo "<table>";
+
+            // Create the table headers (top row)
+            echo "<tr>";
+            echo "<th>&times;</th>";
+            for ($i = 1; $i <= $n; $i++) {
+                echo "<th>$i</th>";
+            }
+            echo "</tr>";
+
+            // Generate the multiplication table
+            for ($row = 1; $row <= $n; $row++) {
+                echo "<tr>";
+                echo "<th>$row</th>";
+                for ($col = 1; $col <= $n; $col++) {
+                    $result = $row * $col;
+                    echo "<td>$result</td>";
+                }
+                echo "</tr>";
+            }
+
+            echo "</table>";
+        } else {
+            echo "<p>Please enter a valid positive integer between 1 and 20.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
